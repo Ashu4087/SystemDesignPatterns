@@ -10,8 +10,8 @@ public class StaticsticsDisplay implements Observer, DisplayElement {
         weatherData.registerObserver(this);
     }
     @Override
-    public void update(float temp, float pressure, float humidity) {
-        this.temp = temp;
+    public void update() {
+        this.temp = weatherData.getTemperature();
         display();
     }
 
