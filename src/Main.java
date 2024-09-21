@@ -1,3 +1,4 @@
+import decoratorPattern.*;
 import observerPattern.CurrentConditionsDisplay;
 import observerPattern.ForecastDisplay;
 import observerPattern.StaticsticsDisplay;
@@ -8,7 +9,6 @@ import strategyPattern.behaviorClasses.FlyRocketPowered;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
 
         /*
             Strategy Pattern
@@ -39,6 +39,27 @@ public class Main {
         weatherData.setMeasurements(100, 55, 40.5f);
         weatherData.setMeasurements(95, 50, 32.5f);
         weatherData.setMeasurements(98, 45, 25.5f);
+
+        /*
+            Decorator Pattern
+         */
+
+        Beverage beverage = new Espresso();
+        System.out.println(beverage.getDescription()+ " $"+ beverage.cost());
+
+        Beverage beverage1 = new DarkRoast();
+        beverage1 = new Mocha(beverage1);
+        beverage1 = new Mocha(beverage1);
+        beverage1 = new Whip(beverage1);
+        System.out.println(beverage1.getDescription()+" $"+ beverage1.cost());
+
+        Beverage beverage2 = new HouseBlend();
+        beverage2 = new Soy(beverage2);
+        beverage2 = new Mocha(beverage2);
+        beverage2 = new Whip(beverage2);
+        System.out.println(beverage2.getDescription()+" $"+ beverage2.cost());
+
+
 
     }
 }
