@@ -9,7 +9,7 @@ public class ForecastDisplay implements Observer, DisplayElement {
         weatherData.registerObserver(this);
     }
     @Override
-    public void update(float temp, float pressure, float humidity) {
+    public void update() {
         display();
     }
 
