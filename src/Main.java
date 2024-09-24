@@ -1,4 +1,5 @@
 import decoratorPattern.*;
+import factoryPattern.*;
 import observerPattern.CurrentConditionsDisplay;
 import observerPattern.ForecastDisplay;
 import observerPattern.StaticsticsDisplay;
@@ -59,6 +60,18 @@ public class Main {
         beverage2 = new Whip(beverage2);
         System.out.println(beverage2.getDescription()+" $"+ beverage2.cost());
 
+
+        /*
+            Factory Pattern
+         */
+
+//        PizzaStore pizzaStore = new PizzaStore();
+        PizzaStore nyPizzaStore = new NYPizzaStore();
+        PizzaStore lAPizzaStore = new LAPizzaStore();
+        Pizza pizza = nyPizzaStore.orderPizza("cheese");
+        System.out.println("Ask Ordered a " + pizza.getName());
+        pizza = lAPizzaStore.orderPizza("cheese");
+        System.out.println("Ask again Ordered a " + pizza.getName());
 
 
     }
