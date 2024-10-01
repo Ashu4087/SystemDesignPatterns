@@ -4,6 +4,8 @@ import observerPattern.CurrentConditionsDisplay;
 import observerPattern.ForecastDisplay;
 import observerPattern.StaticsticsDisplay;
 import observerPattern.WeatherData;
+import singleton.SingletonEager;
+import singleton.SingletonLazyLoad;
 import strategyPattern.MallardDuck;
 import strategyPattern.ModelDuck;
 import strategyPattern.behaviorClasses.FlyRocketPowered;
@@ -72,6 +74,14 @@ public class Main {
         System.out.println("Ask Ordered a " + pizza.getName());
         pizza = lAPizzaStore.orderPizza("cheese");
         System.out.println("Ask again Ordered a " + pizza.getName());
+
+        /**
+         * Singleton
+         */
+
+        SingletonEager singletonEager = SingletonEager.getInstance();
+        SingletonLazyLoad singletonLazyLoad = SingletonLazyLoad.getInstance();
+
 
 
     }
