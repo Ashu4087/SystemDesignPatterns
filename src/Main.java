@@ -1,3 +1,7 @@
+import commandPattern.AirConditioner;
+import commandPattern.MyRemoteControl;
+import commandPattern.TurnOfAcCommand;
+import commandPattern.TurnOnAcCommand;
 import decoratorPattern.*;
 import factoryPattern.*;
 import observerPattern.CurrentConditionsDisplay;
@@ -82,7 +86,15 @@ public class Main {
         SingletonEager singletonEager = SingletonEager.getInstance();
         SingletonLazyLoad singletonLazyLoad = SingletonLazyLoad.getInstance();
 
+        /**
+         * Command
+         */
 
+        AirConditioner airConditioner = new AirConditioner();
+        MyRemoteControl myRemoteControl = new MyRemoteControl();
+        myRemoteControl.setCommand(new TurnOnAcCommand(airConditioner), new TurnOfAcCommand(airConditioner));
+        myRemoteControl.pressButton(true);
+        myRemoteControl.pressButton(false);
 
     }
 }
